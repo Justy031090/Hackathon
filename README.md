@@ -9,6 +9,7 @@ Front-End:
   <br>
   Khaldon
   <br>
+  <br>
 Back-End:
 <br>
   Michael
@@ -36,10 +37,15 @@ Back-End Tasks:
   Puppeteer
   <br>
   Song Schema:
+  <br>
     Name
+    <br>
     Artist
+    <br>
     Category
+    <br>
     Lyrics
+    <br>
     Poster
     <br>
   Data Limit
