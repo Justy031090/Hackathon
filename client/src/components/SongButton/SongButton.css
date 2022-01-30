@@ -1,0 +1,36 @@
+.song-container p {
+  text-align: start;
+  text-indent: 0.5rem;
+}
+.song-container,
+.info-container,
+.genre-container {
+  display: flex;
+}
+.song-container {
+  width: 50%;
+  height: 10vh;
+  background-color: gray;
+  padding: 1rem;
+  color: black;
+  text-decoration: none;
+}
+.info-container {
+  flex-direction: column;
+}
+.genre-container {
+  margin-top: auto;
+  justify-content: center;
+}
+.lyrics-container {
+  margin: 0 1rem;
+  overflow: hidden;
+}
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

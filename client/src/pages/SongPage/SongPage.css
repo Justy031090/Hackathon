@@ -1,0 +1,33 @@
+.poster .img-placeholder {
+  width: 10vw;
+  height: 10vw;
+  display: inline-block;
+}
+.poster p {
+  text-align: left;
+  margin-left: 1rem;
+}
+.poster {
+  padding: 4rem 8rem;
+  display: flex;
+  justify-content: flex-start;
+}
+.song-page .lyrics-container {
+  line-height: 2rem;
+  width: 100%;
+}
+.back-btn {
+  position: absolute;
+  left: 0;
+}
+.main-content {
+  display: flex;
+  padding: 0 2rem;
+}
+.video-container {
+  width: 100%;
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
