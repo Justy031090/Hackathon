@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const SongSchema = new mongoose.Schema({
-    name: {
+    song: {
         type: String,
         required: true,
         lowercase: true,
         trim: true,
     },
-    author: {
+    artist: {
         type: String,
         lowercase: true,
         trim: true,

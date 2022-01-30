@@ -6,6 +6,13 @@ const {
     getAllAuthorsSongs,
 } = require('../controllers/mainRouteControls');
 
+router.get('/', (req, res) => {
+    try {
+        res.send('hello');
+    } catch (error) {
+        res.send(error);
+    }
+});
 router.post('/', getSongBySearch);
 router.get('/category', getSongByCategory);
 router.get('/author', getAllAuthorsSongs);

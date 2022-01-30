@@ -1,6 +1,6 @@
 const Song = require('../models/Song');
 const mongoose = require('mongoose');
-const HttpError = require('../models/http-error');
+const getSongDetails = require('../utils/puppet');
 
 const getSongByCategory = async (req, res) => {
     const { category } = req.body;
@@ -9,12 +9,22 @@ const getSongByCategory = async (req, res) => {
     /* puppteer part*/
 };
 const getSongBySearch = async (req, res) => {
-    const { search } = req.body;
-    const song = await Song.findOne({ name: search });
-    if (song) return res.send(song);
-    const songs = await Song.find({ author: search });
-    if (songs) return res.send(songs);
-    /* puppteer part*/
+    try {
+        const { search } = req.body;
+        const song = await Song.findOne({ name: search });
+        if (song) return res.send(song);
+
+        const songs = await Song.find({ author: search });
+        if (songs.length) return res.send(songs);
+        /* puppteer part*/
+        const details = await getSongDetails(search);
+        const { imgUrl } = details;
+        const newSong = new Song(details);
+        await newSong.save();
+        res.send(newSong);
+    } catch (e) {
+        res.send(e.message);
+    }
 };
 
 const getAllAuthorsSongs = async (req, res) => {
