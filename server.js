@@ -1,6 +1,6 @@
 const express = require('express');
 const connectDB = require('./db/mongoose');
-const users = require('./routes/users');
+const songs = require('./routes/songs');
 const path = require('path');
 const cors = require('cors');
 
@@ -10,7 +10,7 @@ app.use(cors());
 
 //connecting to atlas
 connectDB();
-app.use('/api/users', users);
+app.use('/api/songs', songs);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
