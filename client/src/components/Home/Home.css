@@ -1,0 +1,20 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.home-title {
+  font-size: 4rem;
+  padding: 2rem;
+  font-weight: 500;
+}
+.home-content {
+  /* border: solid 1px black; */
+  width: 50%;
+  height: 50%;
+  font-size: 2rem;
+  padding: 2rem;
+}
