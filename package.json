@@ -1,0 +1,33 @@
+{
+    "name": "hackhaton",
+    "version": "1.0.0",
+    "description": "Shazam Scrapper",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "server": "nodemon server.js",
+        "client": " npm start --prefix client",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Justy031090/Hackathon.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Justy031090/Hackathon/issues"
+    },
+    "homepage": "https://github.com/Justy031090/Hackathon#readme",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^14.3.2",
+        "express": "^4.17.2",
+        "mongoose": "^6.1.8",
+        "puppeteer": "^13.1.2"
+    },
+    "devDependencies": {
+        "concurrently": "^7.0.0",
+        "nodemon": "^2.0.15"
+    }
+}
