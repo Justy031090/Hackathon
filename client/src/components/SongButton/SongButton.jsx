@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./SongButton.css";
 const SongButton = ({ song }) => {
   return (
-    <div className="song-container">
+    <Link className="song-container" to="/song">
       <div className="info-container">
         <p>{song.name}</p>
         <div className="genre-container">
@@ -16,7 +17,7 @@ const SongButton = ({ song }) => {
         voluptate.
       </p>
       <div className="img-placeholder">IMAGE</div>
-    </div>
+    </Link>
   );
 };
 export default SongButton;

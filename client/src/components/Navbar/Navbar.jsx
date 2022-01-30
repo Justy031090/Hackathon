@@ -1,11 +1,15 @@
 import React from "react";
 import Dropdown from "../Dropdown/Dropdown";
+import { Link, Redirect } from "react-router-dom";
 import "./Navbar.css";
 const Navbar = () => {
   return (
     <nav>
-      <a href="#">Home</a>
+      <Link to="/">Home</Link>
       <input type="text" placeholder="Input your keywords here...." />
+      <button>
+        <Link to="/search">Search</Link>
+      </button>
       <Dropdown defaultOption="Select a Category">
         <option>Pop</option>
         <option>Rock</option>
