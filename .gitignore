@@ -1,1 +1,8 @@
 node_modules
+.env
+.gitignore
+Diagram.html
+Instructions.txt
+README.md
+test.js
+pack-lock.json

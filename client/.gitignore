@@ -2,8 +2,10 @@
 
 # dependencies
 /node_modules
+.gitignore
 /.pnp
 .pnp.js
+pack-lock.json
 
 # testing
 /coverage
