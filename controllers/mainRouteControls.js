@@ -1,13 +1,8 @@
 const Song = require('../models/Song');
 const mongoose = require('mongoose');
 const getSongDetails = require('../utils/puppet');
+const { detectLanguage, translateLyrics } = require('../utils/translate');
 
-// const getSongByCategory = async (req, res) => {
-//     const { category } = req.body;
-//     const songs = await Song.find({ genre: category });
-//     if (songs) return res.send(songs);
-//     /* puppteer part*/
-// };
 const getSongBySearch = async (req, res) => {
     try {
         const { search } = req.body;
@@ -17,13 +12,30 @@ const getSongBySearch = async (req, res) => {
         if (songs.length) return res.send(songs);
         /* puppteer part*/
         const details = await getSongDetails(search);
+        const { lyrics } = details;
+        // const lang = detectLanguage(lyrics);
+        const translated = await translateLyrics(lyrics, 'RU');
+        console.log(lyrics, translated);
         const newSong = new Song(details);
+        //arabic = ar
+        //english == en
+        //hebrow = he
+        //amcharic == am
+        //russian == ru
+
         await newSong.save();
         res.send(newSong);
     } catch (e) {
         res.send(e.message);
     }
 };
+
+// const getSongByCategory = async (req, res) => {
+//     const { category } = req.body;
+//     const songs = await Song.find({ genre: category });
+//     if (songs) return res.send(songs);
+//     /* puppteer part*/
+// };
 
 // const getAllAuthorsSongs = async (req, res) => {
 //     const { lookingFor } = req.body;
