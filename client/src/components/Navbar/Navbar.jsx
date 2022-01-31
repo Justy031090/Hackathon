@@ -6,13 +6,22 @@ import axios from 'axios';
 const Navbar = ({ setSongData, songData, setVideoId }) => {
     const [inputValue, setInputValue] = useState('');
 
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    };
     const handleSearch = async () => {
-        const { data } = await axios.post('/api/songs', {
+        let url = 'http://localhost:5000/api/songs';
+        if (process.env.NODE_ENV === 'production') {
+            url = '/api/songs';
+        }
+        const { data } = await axios.post(url, {
             search: inputValue,
+            config,
         });
-        console.log(data);
+
         setSongData(data);
-        console.log(process.env);
     };
     const handleYoutube = async () => {
         const { data } = await axios.get(

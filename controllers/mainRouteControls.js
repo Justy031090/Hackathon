@@ -35,17 +35,4 @@ const getSongBySearch = async (req, res) => {
     }
 };
 
-// const getSongByCategory = async (req, res) => {
-//     const { category } = req.body;
-//     const songs = await Song.find({ genre: category });
-//     if (songs) return res.send(songs);
-//     /* puppteer part*/
-// };
-
-// const getAllAuthorsSongs = async (req, res) => {
-//     const { lookingFor } = req.body;
-//     const songs = await Song.find({ author: lookingFor });
-//     if (songs) return res.send(songs);
-//     /* puppteer part*/
-// };
 module.exports = { getSongBySearch };
