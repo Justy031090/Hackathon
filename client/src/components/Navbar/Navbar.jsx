@@ -25,7 +25,7 @@ const Navbar = ({ setSongData, songData, setVideoId }) => {
     };
     const handleYoutube = async () => {
         const { data } = await axios.get(
-            `https://youtube.googleapis.com/youtube/v3/search?maxResults=1&q=${inputValue}&key=${process.env.YOUTUBE_API}
+            `https://youtube.googleapis.com/youtube/v3/search?maxResults=1&q=${inputValue}&key=AIzaSyBqLSDYPmBhXcvbWqKFmEBVC5iQGZWQao4
             `
         );
         const videoId = data.items[0].id.videoId;
