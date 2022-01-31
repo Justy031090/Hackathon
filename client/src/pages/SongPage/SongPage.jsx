@@ -1,14 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import './SongPage.css';
 const SongPage = ({ song, songData, videoId }) => {
+    const [lang, setLang] = useState('russian');
+
+    const handleChange = (e) => {
+        setLang(e.target.value);
+    };
     return (
         <>
             {songData && (
                 <div className="song-page">
-                    <button className="back-btn">
-                        <Link to="/search">Back</Link>
-                    </button>
                     <header className="poster">
                         <img
                             src={songData.poster}
@@ -32,7 +33,7 @@ const SongPage = ({ song, songData, videoId }) => {
                         ></iframe>
                         <div className="lyrics-container">
                             <h2>Lyrics</h2>
-                            <p>{songData.lyrics}</p>
+                            <p>{songData.lyrics[lang]}</p>
                         </div>
                     </div>
                 </div>

@@ -17,10 +17,7 @@ const SongSchema = new mongoose.Schema({
         lowercase: true,
         trim: true,
     },
-    lyrics: {
-        type: String,
-        required: true,
-    },
+    lyrics: {},
     poster: {
         type: String,
     },

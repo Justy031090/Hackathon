@@ -1,7 +1,7 @@
 const axios = require('axios');
+const dotenv = require('dotenv');
 const { Translate } = require('@google-cloud/translate').v2;
-
-// Creates a client
+dotenv.config();
 const translate = new Translate();
 
 const detectLanguage = async (lyrics) => {
@@ -13,11 +13,29 @@ const detectLanguage = async (lyrics) => {
     }
 };
 
+const options = (lyrics, targetLanguage) => {
+    return {
+        method: 'POST',
+        url: 'https://microsoft-translator-text.p.rapidapi.com/translate',
+        params: {
+            to: targetLanguage,
+            'api-version': '3.0',
+            profanityAction: 'NoAction',
+            textType: 'plain',
+        },
+        headers: {
+            'content-type': 'application/json',
+            'x-rapidapi-host': 'microsoft-translator-text.p.rapidapi.com',
+            'x-rapidapi-key': process.env.TRANSLATE,
+        },
+        data: [{ Text: lyrics }],
+    };
+};
+
 const translateLyrics = async (lyrics, targetLanguage) => {
     try {
-        axios.post(
-            `https://translation.googleapis.com/language/translate/v2?q=my%20name&target=${targetLanguage}&key=${process.env.TRANSLATE}`
-        );
+        const { data } = await axios.request(options(lyrics, targetLanguage));
+        return data;
     } catch (e) {
         console.log(e.message);
     }

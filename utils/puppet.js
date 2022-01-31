@@ -25,7 +25,7 @@ const getSongDetails = async (songName) => {
             '.details.grid.grid-vert-center h2 a'
         );
         const genre = document.querySelector('.genre');
-        const lyrics = document.querySelector('#lyrics p');
+        const puppetLyrics = document.querySelector('#lyrics p');
         const poster = document.querySelector(
             '.inner-content.grid.grid-vert-top img'
         );
@@ -33,7 +33,7 @@ const getSongDetails = async (songName) => {
         return {
             song: song.innerText,
             artist: artist.innerText,
-            lyrics: lyrics.textContent,
+            puppetLyrics: lyrics.textContent,
             genre: genre.innerText,
             poster: poster.src,
         };
@@ -41,8 +41,3 @@ const getSongDetails = async (songName) => {
     return grabSongDetails;
 };
 module.exports = getSongDetails;
-// const temp = async () => {
-//     const details = await getSongDetails('yellow');
-//     console.log(details);
-// };
-// temp();

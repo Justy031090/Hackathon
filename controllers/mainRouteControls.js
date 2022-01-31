@@ -12,17 +12,22 @@ const getSongBySearch = async (req, res) => {
         if (songs.length) return res.send(songs);
         /* puppteer part*/
         const details = await getSongDetails(search);
-        const { lyrics } = details;
-        // const lang = detectLanguage(lyrics);
-        const translated = await translateLyrics(lyrics, 'RU');
-        console.log(lyrics, translated);
-        const newSong = new Song(details);
-        //arabic = ar
-        //english == en
-        //hebrow = he
-        //amcharic == am
-        //russian == ru
-
+        const { puppetLyrics } = details;
+        const responseRu = await translateLyrics(puppetLyrics, 'RU');
+        const dataRu = responseRu[0].translations[0].text;
+        const responseAr = await translateLyrics(puppetLyrics, 'AR');
+        const dataAr = responseAr[0].translations[0].text;
+        const responseHe = await translateLyrics(puppetLyrics, 'HE');
+        const dataHe = responseHe[0].translations[0].text;
+        const responseEn = await translateLyrics(puppetLyrics, 'EN');
+        const dataEn = responseEn[0].translations[0].text;
+        const lyrics = {
+            russian: dataRu,
+            hebrew: dataHe,
+            english: dataEn,
+            arabic: dataAr,
+        };
+        const newSong = new Song({ ...details, lyrics });
         await newSong.save();
         res.send(newSong);
     } catch (e) {
