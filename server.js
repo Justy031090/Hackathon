@@ -8,7 +8,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-//connecting to atlas
 connectDB();
 app.use('/api/songs', songs);
 
@@ -29,3 +28,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 });
+
+//THIS WAS BUILT BY TRUE MASTERS !
