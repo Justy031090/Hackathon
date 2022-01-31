@@ -11,7 +11,20 @@ nav a {
   margin: 0 1rem;
 }
 nav input {
-  border-radius: 0.3rem;
-  border: 1px solid gray;
+  /* border-radius: 0.3rem; */
+  border: none;
   text-indent: 0.2rem;
+  padding: 0.5rem 4rem;
+}
+
+.search-btn {
+  padding: 0.5rem 3rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: rgb(214, 214, 214);
+}
+.search-btn:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
 }

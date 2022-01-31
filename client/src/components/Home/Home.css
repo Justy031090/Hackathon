@@ -7,7 +7,7 @@
 }
 
 .home-title {
-  font-size: 4rem;
+  font-size: 6rem;
   padding: 2rem;
   font-weight: 500;
 }
@@ -17,4 +17,7 @@
   height: 50%;
   font-size: 2rem;
   padding: 2rem;
+}
+.home-title2 {
+  color: rgba(79, 182, 182, 0.541);
 }
