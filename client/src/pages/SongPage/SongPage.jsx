@@ -32,7 +32,7 @@ const SongPage = ({ song, songData, videoId }) => {
                     </header>
                     <div className="main-content">
                         <iframe
-                            src={`http://www.youtube.com/embed/${videoId}`}
+                            src={`https://www.youtube.com/embed/${videoId}`}
                             className="video-container"
                             title="'"
                         ></iframe>
